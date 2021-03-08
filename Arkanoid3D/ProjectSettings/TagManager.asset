@@ -9,6 +9,8 @@ TagManager:
   - Ball
   - Wall
   - TopWall
+  - BottomWall
+  - Background
   layers:
   - Default
   - TransparentFX

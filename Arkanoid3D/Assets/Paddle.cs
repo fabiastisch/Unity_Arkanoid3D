@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class paddle : MonoBehaviour
+public class Paddle : MonoBehaviour
 {
     
     public float speed;
