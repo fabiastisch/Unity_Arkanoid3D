@@ -28,13 +28,12 @@ public class Brick : MonoBehaviour
 
         if (brickValue == 0)
         {
-            Debug.Log("Powerup");
             int random = Random.Range(0, 3);
             if (random == 1)
             {
              
-                GameObject obj = GameObject.FindWithTag("GameController").GetComponent<PlayGround>().powerup;
-                Instantiate(obj, transform.position, Quaternion.identity);   
+               GameObject obj = GameObject.FindWithTag("GameController").GetComponent<PlayGround>().GetRandomPowerUp();
+               Instantiate(obj, transform.position, Quaternion.identity);   
             }
             Destroy(gameObject);
         }

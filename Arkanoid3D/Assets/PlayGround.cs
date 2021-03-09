@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
+[System.Serializable]
 public class PlayGround : MonoBehaviour
 {
-    public GameObject powerup;
+    [SerializeField]
+    public GameObject[] powerups;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +22,9 @@ public class PlayGround : MonoBehaviour
         
     }
 
-    GameObject GetPowerUp()
+    public GameObject GetRandomPowerUp()
     {
-        return powerup;
+        return powerups[Random.Range(0,powerups.Length)];
     }
     
 }

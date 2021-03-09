@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8377547352479002255
+--- !u!1 &1049208662041327428
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6947674347131697972}
-  - component: {fileID: 5726605998914273446}
-  - component: {fileID: 1581817970415296449}
-  - component: {fileID: 4138863384591395049}
-  - component: {fileID: 90139961874287582}
+  - component: {fileID: 5837317632145015375}
+  - component: {fileID: 8327254229184517883}
+  - component: {fileID: 5738685343617939179}
+  - component: {fileID: 4124077876538883432}
+  - component: {fileID: -1064375814209066254}
+  - component: {fileID: 2093994395675047731}
   m_Layer: 0
-  m_Name: Quad
-  m_TagString: Brick
+  m_Name: Larger
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6947674347131697972
+--- !u!4 &5837317632145015375
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8377547352479002255}
+  m_GameObject: {fileID: 1049208662041327428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5726605998914273446
+--- !u!33 &8327254229184517883
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8377547352479002255}
+  m_GameObject: {fileID: 1049208662041327428}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1581817970415296449
+--- !u!23 &5738685343617939179
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8377547352479002255}
+  m_GameObject: {fileID: 1049208662041327428}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b0c9a21b29f2d2e40a7fc90f9c8615e2, type: 2}
+  - {fileID: 2100000, guid: 03c1df7bb8b687044808c0c74594e901, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,29 +84,45 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4138863384591395049
+--- !u!65 &4124077876538883432
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8377547352479002255}
+  m_GameObject: {fileID: 1049208662041327428}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &90139961874287582
+--- !u!54 &-1064375814209066254
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049208662041327428}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &2093994395675047731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8377547352479002255}
+  m_GameObject: {fileID: 1049208662041327428}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cca4ba9f0370f04459c36025ee56f5c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 8413a4b4d2d8078479500a221aa1aaa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brickValue: 1
+  maxZ: 8

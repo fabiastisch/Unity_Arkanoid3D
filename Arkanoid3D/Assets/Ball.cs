@@ -55,10 +55,6 @@ public class Ball : MonoBehaviour
                 ResetBall();
 
                 break;
-            default:
-                Debug.LogWarning("Unknown Collider tag" +other.tag.ToString());
-                
-                break;
         }
         /*if (other.CompareTag("Paddle") || other.CompareTag("Brick"))
         {

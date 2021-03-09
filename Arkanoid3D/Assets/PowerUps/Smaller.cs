@@ -1,16 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
-using Quaternion = UnityEngine.Quaternion;
-using Vector3 = UnityEngine.Vector3;
 
-public class MoreBalls : PowerUp
+public class Smaller : PowerUp
 {
     protected override void OnPaddleHit(Collider collider)
     {
-        Instantiate(GameObject.FindWithTag("Ball").gameObject, collider.transform.position, Quaternion.identity);
+        collider.gameObject.GetComponent<Paddle>().SetSmaller(10);
         Destroy(gameObject);
     }
 
