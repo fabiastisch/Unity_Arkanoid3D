@@ -819,7 +819,7 @@ GameObject:
   - component: {fileID: 1009888951}
   m_Layer: 5
   m_Name: Score
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1294,6 +1294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxX: 10
   maxZ: 10
+  isFake: 0
 --- !u!135 &2089144493
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1386,7 +1387,7 @@ GameObject:
   - component: {fileID: 2125916189}
   m_Layer: 5
   m_Name: Life
-  m_TagString: Untagged
+  m_TagString: Lives
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1456,7 +1457,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Live
+  m_Text: 'Lives
 
 '
 --- !u!222 &2125916191

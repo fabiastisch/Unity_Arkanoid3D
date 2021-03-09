@@ -12,6 +12,8 @@ TagManager:
   - BottomWall
   - Background
   - PowerUp
+  - Lives
+  - Score
   layers:
   - Default
   - TransparentFX
