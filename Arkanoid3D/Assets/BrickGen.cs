@@ -44,14 +44,11 @@ public class BrickGen : MonoBehaviour
     {
         Vector3 localScale = gameObjectPrefab.transform.localScale;
         float playAreaSize = playArea.localScale.x * 10;
-        Debug.Log(playAreaSize);
-        Debug.Log(localScale.x);
-        Debug.Log(offset);
+       
         float numb = playAreaSize / (localScale.x + offset);
         int numAsInt = (int) numb;
         float numOffset = numb - numAsInt;
         
-        Debug.Log(numb);
         for (int i = 0; i < numAsInt; i++)
         {
             float xCoord = -(playAreaSize / 2) + (offset + localScale.x + numOffset) / 2 + i * (localScale.x + offset);

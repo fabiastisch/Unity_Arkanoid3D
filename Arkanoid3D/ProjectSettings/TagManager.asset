@@ -11,6 +11,7 @@ TagManager:
   - TopWall
   - BottomWall
   - Background
+  - PowerUp
   layers:
   - Default
   - TransparentFX

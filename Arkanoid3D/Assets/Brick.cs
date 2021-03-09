@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Brick : MonoBehaviour
 {
@@ -27,6 +28,14 @@ public class Brick : MonoBehaviour
 
         if (brickValue == 0)
         {
+            Debug.Log("Powerup");
+            int random = Random.Range(0, 3);
+            if (random == 1)
+            {
+             
+                GameObject obj = GameObject.FindWithTag("GameController").GetComponent<PlayGround>().powerup;
+                Instantiate(obj, transform.position, Quaternion.identity);   
+            }
             Destroy(gameObject);
         }
 
