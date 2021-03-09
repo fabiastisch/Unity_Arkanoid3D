@@ -9,6 +9,7 @@ public class Ball : MonoBehaviour
     public float maxX;
     public float maxZ;
     private Vector3 startPosition;
+    public bool isFake = false;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,10 @@ public class Ball : MonoBehaviour
 
                 break;
             case "BottomWall":
+                /*if (isFake)
+                {
+                    Destroy(gameObject);
+                }*/
                 ResetBall();
 
                 break;
