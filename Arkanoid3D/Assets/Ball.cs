@@ -53,33 +53,16 @@ public class Ball : MonoBehaviour
 
                 break;
             case "BottomWall":
-                /*if (isFake)
+                if (GameObject.FindGameObjectsWithTag("Ball").Length == 1)
                 {
-                    Destroy(gameObject);
-                }*/
-                ResetBall();
+                    GameObject.FindWithTag("Lives").GetComponent<Life>().removeOneLife();
+                    Debug.Log("GameOver");
+                    // TODO: Add End Screen
+                }
+                Destroy(gameObject);
+                // ResetBall();
 
                 break;
         }
-        /*if (other.CompareTag("Paddle") || other.CompareTag("Brick"))
-        {
-            float maxDist = other.transform.localScale.x * 1f * 0.5f + transform.localScale.x * 1f * 0.5f;
-            float dist = transform.position.x - other.transform.position.x;
-            float nDist = dist / maxDist;
-
-            velocity = new Vector3(nDist * maxX, 0, -velocity.z);
-        }
-        else if (other.CompareTag("Wall"))
-        {
-            velocity = new Vector3(-velocity.x, velocity.y, velocity.z);
-        }
-        else if (other.CompareTag("TopWall"))
-        {
-            velocity = new Vector3(velocity.x, velocity.y, -velocity.z);
-        }
-        else if (other.CompareTag("BottomWall"))
-        {
-            ResetBall();
-        }*/
     }
 }

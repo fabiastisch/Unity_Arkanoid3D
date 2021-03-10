@@ -11,9 +11,9 @@ public class MoreBalls : PowerUp
     protected override void OnPaddleHit(Collider collider)
     {
         GameObject ball = Instantiate(GameObject.FindWithTag("Ball").gameObject, collider.transform.position, Quaternion.identity);
-        Material material = ball.GetComponent<Renderer>().material;
+        /*Material material = ball.GetComponent<Renderer>().material;
         ball.GetComponent<Ball>().isFake = true;
-        material.color = Color.cyan;
+        material.color = Color.cyan;*/
         Destroy(gameObject);
     }
 

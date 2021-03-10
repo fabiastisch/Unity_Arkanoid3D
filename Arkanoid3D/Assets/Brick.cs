@@ -25,6 +25,8 @@ public class Brick : MonoBehaviour
     {
         brickValue--;
         Material material = GetComponent<Renderer>().material;
+        
+        GameObject.FindWithTag("Score").GetComponent<Score>().addScore();
 
         if (brickValue == 0)
         {
