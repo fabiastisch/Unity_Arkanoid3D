@@ -62,14 +62,6 @@ public class Ball : MonoBehaviour
     {
         switch (other.tag)
         {
-            case "Paddle":
-            case "Brick":
-                float maxDist = other.transform.localScale.x * 1f * 0.5f + transform.localScale.x * 1f * 0.5f;
-                float dist = transform.position.x - other.transform.position.x;
-                float nDist = dist / maxDist;
-
-                velocity = new Vector3(nDist * maxX, 0, -velocity.z);
-                break;
             case "Wall":
                 velocity = new Vector3(-velocity.x, velocity.y, velocity.z);
 
@@ -102,6 +94,15 @@ public class Ball : MonoBehaviour
                 // ResetBall();
 
                 break;
+            case "Paddle":
+            case "Brick":
+                float maxDist = other.transform.localScale.x * 1f * 0.5f + transform.localScale.x * 1f * 0.5f;
+                float dist = transform.position.x - other.transform.position.x;
+                float nDist = dist / maxDist;
+
+                velocity = new Vector3(nDist * maxX, 0, -velocity.z);
+                break;
+            
         }
     }
 
