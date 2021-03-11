@@ -1386,7 +1386,7 @@ GameObject:
   - component: {fileID: 2125916190}
   - component: {fileID: 2125916189}
   m_Layer: 5
-  m_Name: Life
+  m_Name: Lives
   m_TagString: Lives
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
