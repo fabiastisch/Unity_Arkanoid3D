@@ -9,13 +9,39 @@ public class Ball : MonoBehaviour
     public float maxX;
     public float maxZ;
     private Vector3 startPosition;
-    public bool isFake = false;
+    public static int count = 0;
+    private CountDownTimer countDownComponent;
+
+    private void Awake()
+    {
+        count++;
+        countDownComponent = GameObject.FindWithTag("CountDown").GetComponent<CountDownTimer>();
+    }
+
+    private void OnDestroy()
+    {
+        count--;
+        countDownComponent.CountDownFinished -= this.CountDownFinished;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        if (count == 1)
+        {
+            countDownComponent.CountDownFinished += this.CountDownFinished;
+        }
+        else
+        {
+            velocity = new Vector3(0, 0, -maxZ);
+            startPosition = transform.position;    
+        }
+    }
+
+    private void CountDownFinished()
+    {
         velocity = new Vector3(0, 0, -maxZ);
-        startPosition = transform.position;
+        startPosition = transform.position;    
     }
 
     //TODO: fix bugs
@@ -55,14 +81,34 @@ public class Ball : MonoBehaviour
             case "BottomWall":
                 if (GameObject.FindGameObjectsWithTag("Ball").Length == 1)
                 {
-                    GameObject.FindWithTag("Lives").GetComponent<Life>().removeOneLife();
+                    Life lifeComponent = GameObject.FindWithTag("Lives").GetComponent<Life>();
+                    lifeComponent.removeOneLife();
                     Debug.Log("GameOver");
+                    if (lifeComponent.life > 0)
+                    {
+                        GameObject.FindWithTag("CountDown").GetComponent<CountDownTimer>().ResetCountdown();
+                        this.NextLife();
+                    }
+                    else
+                    {
+                        Destroy(gameObject);
+                    }
                     // TODO: Add End Screen
                 }
-                Destroy(gameObject);
+                else
+                {
+                    Destroy(gameObject);
+                }
                 // ResetBall();
 
                 break;
         }
+    }
+
+    private void NextLife()
+    {
+        countDownComponent.CountDownFinished += this.CountDownFinished;
+        transform.position = new Vector3(0,0.5f,-7f);
+        velocity = Vector3.zero;
     }
 }
