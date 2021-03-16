@@ -10,7 +10,8 @@ public class MoreBalls : PowerUp
 {
     protected override void OnPaddleHit(Collider collider)
     {
-        GameObject ball = Instantiate(GameObject.FindWithTag("Ball").gameObject, collider.transform.position, Quaternion.identity);
+        GameObject ballPrefab = GameObject.FindWithTag("Ball").gameObject;
+        GameObject ball = Instantiate(ballPrefab, collider.transform.position + new Vector3(0,0,collider.transform.localScale.z * 0.5f) + new Vector3(0,0,ballPrefab.transform.localScale.z * 0.5f) , Quaternion.identity);
         /*Material material = ball.GetComponent<Renderer>().material;
         ball.GetComponent<Ball>().isFake = true;
         material.color = Color.cyan;*/

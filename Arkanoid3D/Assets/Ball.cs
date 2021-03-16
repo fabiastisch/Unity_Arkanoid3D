@@ -27,21 +27,22 @@ public class Ball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         if (count == 1)
         {
             countDownComponent.CountDownFinished += this.CountDownFinished;
         }
         else
         {
-            velocity = new Vector3(0, 0, -maxZ);
-            startPosition = transform.position;    
+            velocity = new Vector3(0, 0, maxZ);
+            startPosition = transform.position;
         }
     }
 
     private void CountDownFinished()
     {
         velocity = new Vector3(0, 0, -maxZ);
-        startPosition = transform.position;    
+        startPosition = transform.position;
     }
 
     //TODO: fix bugs
@@ -85,6 +86,7 @@ public class Ball : MonoBehaviour
                     {
                         Destroy(gameObject);
                     }
+
                     // TODO: Add End Screen
                 }
                 else
@@ -95,21 +97,49 @@ public class Ball : MonoBehaviour
 
                 break;
             case "Paddle":
-            case "Brick":
                 float maxDist = other.transform.localScale.x * 1f * 0.5f + transform.localScale.x * 1f * 0.5f;
                 float dist = transform.position.x - other.transform.position.x;
                 float nDist = dist / maxDist;
 
                 velocity = new Vector3(nDist * maxX, 0, -velocity.z);
                 break;
-            
+            case "Brick":
+                //  Debug.Log(other.ClosestPoint(transform.position) - transform.position);
+                Vector3 closestPoint = other.ClosestPoint(transform.position) - other.transform.position;
+
+                if (closestPoint.z <= other.transform.localScale.z * 0.5f)
+                {
+                    if (closestPoint.x < other.transform.localScale.x * 0.5f)
+                    {
+                        velocity = new Vector3(velocity.x, velocity.y, -velocity.z);
+                    }
+                    else
+                    {
+                        if (closestPoint.z >= other.transform.localScale.z * 0.5f)
+                        {
+                            velocity = new Vector3(-velocity.x, velocity.y, -velocity.z);
+                        }
+                        else
+                        {
+                            velocity = new Vector3(-velocity.x, velocity.y, velocity.z);
+                        }
+
+                    }
+                }
+                Debug.Log(other.ClosestPoint(transform.position) - other.transform.position);
+                break;
+        }
+
+        if (!other.tag.Equals("Background"))
+        {
+            GetComponent<AudioSource>().Play();
         }
     }
 
     private void NextLife()
     {
         countDownComponent.CountDownFinished += this.CountDownFinished;
-        transform.position = new Vector3(0,0.5f,-7f);
+        transform.position = new Vector3(0, 0.5f, -7f);
         velocity = Vector3.zero;
     }
 }
