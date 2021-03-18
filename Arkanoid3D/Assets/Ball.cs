@@ -105,32 +105,33 @@ public class Ball : MonoBehaviour
                 break;
             case "Brick":
                 //  Debug.Log(other.ClosestPoint(transform.position) - transform.position);
-                Vector3 closestPoint = other.ClosestPoint(transform.position) - other.transform.position;
-
-                if (closestPoint.z <= other.transform.localScale.z * 0.5f)
+                
+                float distX = Mathf.Abs(transform.position.x - other.transform.position.x);
+                float distZ = Mathf.Abs(transform.position.z - other.transform.position.z);
+                
+                if (distX >= other.transform.localScale.x / 2)
                 {
-                    if (closestPoint.x < other.transform.localScale.x * 0.5f)
+                    if (distZ <= other.transform.localScale.z / 2)
+                    {
+                        velocity = new Vector3(-velocity.x, velocity.y, velocity.z);
+                    }
+                    else if (distX - other.transform.localScale.x / 2 < distZ - other.transform.localScale.z /2)
                     {
                         velocity = new Vector3(velocity.x, velocity.y, -velocity.z);
                     }
                     else
                     {
-                        if (closestPoint.z >= other.transform.localScale.z * 0.5f)
-                        {
-                            velocity = new Vector3(-velocity.x, velocity.y, -velocity.z);
-                        }
-                        else
-                        {
-                            velocity = new Vector3(-velocity.x, velocity.y, velocity.z);
-                        }
-
+                        velocity = new Vector3(-velocity.x, velocity.y, velocity.z);
                     }
                 }
-                Debug.Log(other.ClosestPoint(transform.position) - other.transform.position);
+                else
+                {
+                    velocity = new Vector3(velocity.x, velocity.y, -velocity.z);
+                }
                 break;
         }
 
-        if (!other.tag.Equals("Background"))
+        if (!other.tag.Equals("Background") && !other.tag.Equals("BottomWall"))
         {
             GetComponent<AudioSource>().Play();
         }
