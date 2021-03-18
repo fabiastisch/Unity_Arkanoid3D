@@ -15,6 +15,7 @@ TagManager:
   - Lives
   - Score
   - CountDown
+  - GameOver
   layers:
   - Default
   - TransparentFX

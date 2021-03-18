@@ -32,7 +32,7 @@ public class BrickGen : MonoBehaviour
     private void LoadLevel()
     {
         float z = prefab.transform.localScale.z;
-        float offset = 0.5f;
+        float offset = 2f;
         for (int i = 0; i < 3; i++)
         {
             LoadRow(offset, i*(z+offset) ,prefab, level);

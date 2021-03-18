@@ -7,6 +7,7 @@ public class Life : MonoBehaviour
 {
     private Text textComponent;
     private string text;
+    public GameObject gameOverObj;
 
     public int life;
 
@@ -30,9 +31,18 @@ public class Life : MonoBehaviour
 
     public void removeOneLife()
     {
-        if (life > 0)
+        if (life > 1)
         {
             this.life--;
+        }
+        else
+        {
+            if (life > 0)
+            {
+                this.life--;
+                gameOverObj.SetActive(true);
+                Time.timeScale = 0;
+            }
         }
 
         this.ApplyChanges();

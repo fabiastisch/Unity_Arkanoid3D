@@ -84,7 +84,7 @@ public class Ball : MonoBehaviour
                     }
                     else
                     {
-                        Destroy(gameObject);
+                       Destroy(gameObject);
                     }
 
                     // TODO: Add End Screen
