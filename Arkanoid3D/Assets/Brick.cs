@@ -23,6 +23,10 @@ public class Brick : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.gameObject.CompareTag("Ball"))
+        {
+            return;
+        }
         brickValue--;
         Material material = GetComponent<Renderer>().material;
         
