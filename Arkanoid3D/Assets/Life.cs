@@ -41,6 +41,9 @@ public class Life : MonoBehaviour
             {
                 this.life--;
                 gameOverObj.SetActive(true);
+                int score = GameObject.FindWithTag("Score").GetComponent<Score>().GetScore();
+                
+                GameObject.FindWithTag("GameOverScore").GetComponent<Text>().text = "You Score: " + score;
                 Time.timeScale = 0;
             }
         }

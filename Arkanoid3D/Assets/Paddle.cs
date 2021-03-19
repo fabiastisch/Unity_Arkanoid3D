@@ -53,7 +53,6 @@ public class Paddle : MonoBehaviour
         float newLocalScaleX = ((localScale.x * 0.8f) > minScaleX)
             ? localScale.x * 0.8f
             : minScaleX;
-        Debug.Log(newLocalScaleX);
         transform.localScale = new Vector3(newLocalScaleX, localScale.y, localScale.z);
         this.UpdateSizes();
         Invoke(nameof(SetLarger),seconds);

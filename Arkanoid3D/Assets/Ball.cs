@@ -57,7 +57,6 @@ public class Ball : MonoBehaviour
         transform.position += velocity * Time.deltaTime;
     }
 
-    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -76,21 +75,22 @@ public class Ball : MonoBehaviour
                 {
                     Life lifeComponent = GameObject.FindWithTag("Lives").GetComponent<Life>();
                     lifeComponent.removeOneLife();
-                    Debug.Log("GameOver");
                     if (lifeComponent.life > 0)
                     {
                         GameObject.FindWithTag("CountDown").GetComponent<CountDownTimer>().ResetCountdown();
+                        GameObject.FindWithTag("GameController").GetComponent<CustomAudioManager>().Play(other.gameObject.GetComponent<AudioSource>().clip);
                         this.NextLife();
                     }
                     else
                     {
-                       Destroy(gameObject);
+                        Destroy(gameObject);
                     }
 
                     // TODO: Add End Screen
                 }
                 else
                 {
+                    GameObject.FindWithTag("GameController").GetComponent<CustomAudioManager>().Play(other.gameObject.GetComponent<AudioSource>().clip);
                     Destroy(gameObject);
                 }
                 // ResetBall();
@@ -104,18 +104,17 @@ public class Ball : MonoBehaviour
                 velocity = new Vector3(nDist * maxX, 0, -velocity.z);
                 break;
             case "Brick":
-                //  Debug.Log(other.ClosestPoint(transform.position) - transform.position);
-                
+
                 float distX = Mathf.Abs(transform.position.x - other.transform.position.x);
                 float distZ = Mathf.Abs(transform.position.z - other.transform.position.z);
-                
+
                 if (distX >= other.transform.localScale.x / 2)
                 {
                     if (distZ <= other.transform.localScale.z / 2)
                     {
                         velocity = new Vector3(-velocity.x, velocity.y, velocity.z);
                     }
-                    else if (distX - other.transform.localScale.x / 2 < distZ - other.transform.localScale.z /2)
+                    else if (distX - other.transform.localScale.x / 2 < distZ - other.transform.localScale.z / 2)
                     {
                         velocity = new Vector3(velocity.x, velocity.y, -velocity.z);
                     }
@@ -128,6 +127,7 @@ public class Ball : MonoBehaviour
                 {
                     velocity = new Vector3(velocity.x, velocity.y, -velocity.z);
                 }
+
                 break;
         }
 

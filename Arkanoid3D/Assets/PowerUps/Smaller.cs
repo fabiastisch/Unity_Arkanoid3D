@@ -7,6 +7,7 @@ public class Smaller : PowerUp
 {
     protected override void OnPaddleHit(Collider collider)
     {
+        GameObject.FindWithTag("GameController").GetComponent<CustomAudioManager>().Play(GetComponent<AudioSource>().clip);
         collider.gameObject.GetComponent<Paddle>().SetSmaller(10);
         Destroy(gameObject);
     }

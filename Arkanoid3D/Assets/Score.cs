@@ -21,6 +21,11 @@ public class Score : MonoBehaviour
     {
     }
 
+    public int GetScore()
+    {
+        return score;
+    }
+
     public void addScore(int score = 1)
     {
         this.score += score;
