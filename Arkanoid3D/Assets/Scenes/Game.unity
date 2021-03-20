@@ -2548,8 +2548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969cc26ce35385c4abbecf1576621d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxX: 10
-  maxZ: 10
+  maxX: 15
+  maxZ: 15
 --- !u!135 &2089144493
 SphereCollider:
   m_ObjectHideFlags: 0

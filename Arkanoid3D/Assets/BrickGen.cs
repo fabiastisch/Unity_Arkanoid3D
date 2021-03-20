@@ -57,18 +57,4 @@ public class BrickGen : MonoBehaviour
             newGameObj.transform.parent = transform;
         }
     }
-
-    private void LoadCircle(int objNumbers, float radius, GameObject gameObjectPefab)
-    {
-        for (int i = 0; i < objNumbers; i++)
-        {
-            float angle = i * Mathf.PI * 2 / objNumbers;
-            float x = Mathf.Cos(angle) * radius;
-            float z = Mathf.Sin(angle) * radius;
-            Vector3 position = transform.position + new Vector3(x, 0, z);
-            float angleInDegrees = -angle * Mathf.Rad2Deg;
-            Quaternion rotation = Quaternion.Euler(0, angleInDegrees, 0);
-            Instantiate(gameObjectPefab, position, rotation);
-        }
-    }
 }

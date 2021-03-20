@@ -16,11 +16,6 @@ public class Score : MonoBehaviour
         this.ApplyChanges();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public int GetScore()
     {
         return score;
